@@ -55,6 +55,7 @@ class MainViewModel @ViewModelInject constructor(
         }
     }
 
+    //store the data in the local database when we access the remote database
     private fun offlineCacheRecipes(foodrecipe: FoodRecipe) {
         val recipesEntity = RecipesEntity(foodrecipe)
         insertRecipes(recipesEntity)

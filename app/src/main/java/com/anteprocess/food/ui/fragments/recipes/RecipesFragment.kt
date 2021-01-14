@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.anteprocess.food.viewmodels.MainViewModel
 import com.anteprocess.food.R
@@ -17,6 +19,7 @@ import com.anteprocess.food.data.util.NetworkResult
 import com.anteprocess.food.viewmodels.RecipesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_recipes.view.*
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class RecipesFragment : Fragment() {
@@ -42,13 +45,39 @@ class RecipesFragment : Fragment() {
         mView = inflater.inflate(R.layout.fragment_recipes, container, false)
 
         setupRecyclerView()
-        requestApiData()
+        //requestApiData()
+        readDatabase()
 
         return mView
     }
 
+    // Setting up recyclerView
+    private fun setupRecyclerView() {
+        mView.recyclerview.adapter = mAdapter
+        mView.recyclerview.layoutManager = LinearLayoutManager(requireContext())
+        showShimmerEffect()
+    }
+
+    /**
+     * Read from the local database if we the data is not null
+     * else, request the data from the repo     */
+    private fun readDatabase() {
+       lifecycleScope.launch {
+           mainViewModel.readRecipes.observe(viewLifecycleOwner, { database ->
+               if (database.isNotEmpty()) {
+                   mAdapter.setData(database[0].foodRecipe)
+                   hideShimmerEffect()
+               } else {
+                   // Request a new data from remote
+                   requestApiData()
+               }
+           })
+       }
+    }
+
 
     private fun requestApiData() {
+        Log.d("RecipesFragment", "requestApiData called")
         mainViewModel.getRecipes(recipesViewModel.applyQueries())
         mainViewModel.recipesResponse.observe(viewLifecycleOwner, { response ->
             when (response) {
@@ -59,6 +88,9 @@ class RecipesFragment : Fragment() {
                 }
                 is NetworkResult.Error -> {
                     hideShimmerEffect()
+                    // Show the last cached data from the local
+                    // database if network error occurs
+                    loadDataFromCache()
                     Toast.makeText(
                         requireContext(),
                         response.message.toString(),
@@ -72,11 +104,17 @@ class RecipesFragment : Fragment() {
         })
     }
 
-    private fun setupRecyclerView() {
-        mView.recyclerview.adapter = mAdapter
-        mView.recyclerview.layoutManager = LinearLayoutManager(requireContext())
-        showShimmerEffect()
+    //Function to loadData from cache
+    private fun loadDataFromCache() {
+       lifecycleScope.launch {
+           mainViewModel.readRecipes.observe(viewLifecycleOwner, { database ->
+               if(database.isNotEmpty()) {
+                   mAdapter.setData(database[0].foodRecipe)
+               }
+           })
+       }
     }
+
 
     private fun showShimmerEffect() {
         mView.recyclerview.showShimmer()
