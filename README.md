@@ -1,4 +1,4 @@
 # Gurume
-Food recipes seraching application made with kotlin
+Food recipes searching application made with kotlin. I`m currently making this application as a prototype that can be used for other projects.
 
-You will have to create the API key for the API_KEY variable in the Constants.kt from spoonacular developer website. 
+Since I won`t be pushing the api key, you will have to create the API key for the variable(API_KEY) in the Constants.kt from spoonacular developer website. 
