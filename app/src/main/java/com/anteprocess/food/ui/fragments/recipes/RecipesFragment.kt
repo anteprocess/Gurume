@@ -16,6 +16,7 @@ import com.anteprocess.food.R
 import com.anteprocess.food.adapters.RecipesAdapter
 import com.anteprocess.food.data.util.Constants.Companion.API_KEY
 import com.anteprocess.food.data.util.NetworkResult
+import com.anteprocess.food.data.util.observeOnce
 import com.anteprocess.food.viewmodels.RecipesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_recipes.view.*
@@ -63,7 +64,7 @@ class RecipesFragment : Fragment() {
      * else, request the data from the repo     */
     private fun readDatabase() {
        lifecycleScope.launch {
-           mainViewModel.readRecipes.observe(viewLifecycleOwner, { database ->
+           mainViewModel.readRecipes.observeOnce(viewLifecycleOwner, { database ->
                if (database.isNotEmpty()) {
                    mAdapter.setData(database[0].foodRecipe)
                    hideShimmerEffect()
