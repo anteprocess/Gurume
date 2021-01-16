@@ -1,5 +1,6 @@
-package com.anteprocess.food.data.network
+package com.anteprocess.food.di
 
+import com.anteprocess.food.data.network.FoodRecipesApi
 import com.anteprocess.food.data.util.Constants.Companion.BASE_URL
 import dagger.Module
 import dagger.Provides
