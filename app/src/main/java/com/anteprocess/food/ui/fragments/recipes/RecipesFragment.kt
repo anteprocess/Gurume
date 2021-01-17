@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.anteprocess.food.viewmodels.MainViewModel
 import com.anteprocess.food.R
@@ -55,6 +56,11 @@ class RecipesFragment : Fragment() {
         //requestApiData()
         readDatabase()
 
+        // Open up the Bottom-Sheet
+        binding.recipesFab.setOnClickListener {
+            findNavController().navigate(R.id.action_recipesFragment_to_recipesBottomSheet)
+        }
+
         return binding.root
     }
 
@@ -69,17 +75,17 @@ class RecipesFragment : Fragment() {
      * Read from the local database if we the data is not null
      * else, request the data from the repo     */
     private fun readDatabase() {
-       lifecycleScope.launch {
-           mainViewModel.readRecipes.observeOnce(viewLifecycleOwner, { database ->
-               if (database.isNotEmpty()) {
-                   mAdapter.setData(database[0].foodRecipe)
-                   hideShimmerEffect()
-               } else {
-                   // Request a new data from remote
-                   requestApiData()
-               }
-           })
-       }
+        lifecycleScope.launch {
+            mainViewModel.readRecipes.observeOnce(viewLifecycleOwner, { database ->
+                if (database.isNotEmpty()) {
+                    mAdapter.setData(database[0].foodRecipe)
+                    hideShimmerEffect()
+                } else {
+                    // Request a new data from remote
+                    requestApiData()
+                }
+            })
+        }
     }
 
 
@@ -113,13 +119,13 @@ class RecipesFragment : Fragment() {
 
     //Function to loadData from cache
     private fun loadDataFromCache() {
-       lifecycleScope.launch {
-           mainViewModel.readRecipes.observe(viewLifecycleOwner, { database ->
-               if(database.isNotEmpty()) {
-                   mAdapter.setData(database[0].foodRecipe)
-               }
-           })
-       }
+        lifecycleScope.launch {
+            mainViewModel.readRecipes.observe(viewLifecycleOwner, { database ->
+                if (database.isNotEmpty()) {
+                    mAdapter.setData(database[0].foodRecipe)
+                }
+            })
+        }
     }
 
 
