@@ -2,10 +2,9 @@ package com.anteprocess.food.ui.fragments.recipes
 
 import android.os.Bundle
 import android.util.Log
+import android.view.*
+import androidx.appcompat.widget.SearchView // Use the androidx
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -28,7 +27,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class RecipesFragment : Fragment() {
+class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
 
     // The args from the nav controller
     private val args by navArgs<RecipesFragmentArgs>()
@@ -59,6 +58,9 @@ class RecipesFragment : Fragment() {
         __binding = FragmentRecipesBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
         binding.mainViewModel = mainViewModel
+
+        //make menu available
+        setHasOptionsMenu(true)
 
         setupRecyclerView()
         //requestApiData()
@@ -95,6 +97,27 @@ class RecipesFragment : Fragment() {
         binding.recyclerview.adapter = mAdapter
         binding.recyclerview.layoutManager = LinearLayoutManager(requireContext())
         showShimmerEffect()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.recipes_menu, menu)
+        val search = menu.findItem(R.id.menu_search)
+        val searchView = search.actionView as? SearchView
+        searchView?.setOnQueryTextListener(this)
+    }
+
+
+    // These are for the search text
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        if (query != null) {
+            // Call the request api only when there is a query
+            searchApiData(query)
+        }
+        return true
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        return true
     }
 
     /**
@@ -141,6 +164,35 @@ class RecipesFragment : Fragment() {
                 }
             }
         })
+    }
+
+    private fun searchApiData(searchQuery: String) {
+        showShimmerEffect()
+        // request
+        mainViewModel.searchRecipes(recipesViewModel.applySearchQuery(searchQuery))
+        // get response
+        mainViewModel.searchedRecipesResponse.observe(viewLifecycleOwner, { response ->
+            when(response) {
+                is NetworkResult.Success -> {
+                    hideShimmerEffect()
+                    val foodRecipe = response.data
+                    foodRecipe?.let { mAdapter.setData(it) }
+                }
+                is NetworkResult.Error -> {
+                    hideShimmerEffect()
+                    loadDataFromCache()
+                    Toast.makeText(
+                        requireContext(),
+                        response.message.toString(),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                is NetworkResult.Loading -> {
+                    showShimmerEffect()
+                }
+            }
+        })
+
     }
 
     //Function to loadData from cache

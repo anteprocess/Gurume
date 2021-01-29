@@ -15,4 +15,9 @@ class RemoteDataSource @Inject constructor(
         Log.d("TEST1", resp.body().toString())
        return resp
     }
+
+    // Request Query search
+    suspend fun searchRecipes(searchQuery: Map<String, String>) : Response<FoodRecipe> {
+        return foodRecipesApi.searchRecipes(searchQuery)
+    }
 }

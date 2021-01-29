@@ -8,6 +8,7 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.anteprocess.food.data.DataStoreRepository
 import com.anteprocess.food.data.util.Constants
+import com.anteprocess.food.data.util.Constants.Companion.API_KEY
 import com.anteprocess.food.data.util.Constants.Companion.DEFAULT_DIET_TYPE
 import com.anteprocess.food.data.util.Constants.Companion.DEFAULT_MEAL_TYPE
 import com.anteprocess.food.data.util.Constants.Companion.DEFAULT_RECIPES_NUMBER
@@ -17,6 +18,7 @@ import com.anteprocess.food.data.util.Constants.Companion.QUERY_DIET
 import com.anteprocess.food.data.util.Constants.Companion.QUERY_TYPE
 import com.anteprocess.food.data.util.Constants.Companion.QUERY_FILL_INGREDIENTS
 import com.anteprocess.food.data.util.Constants.Companion.QUERY_NUMBER
+import com.anteprocess.food.data.util.Constants.Companion.QUERY_SEARCH
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -73,6 +75,17 @@ class RecipesViewModel @ViewModelInject constructor(
         //queries[QUERY_FILL_INGREDIENTS] = "true"
         return queries
     }
+
+    fun applySearchQuery(searchQuery: String) : HashMap<String, String>{
+        val queries: HashMap<String, String> = HashMap()
+        queries[QUERY_SEARCH] = searchQuery
+        queries[QUERY_NUMBER] = DEFAULT_RECIPES_NUMBER
+        queries[QUERY_API_KEY] = API_KEY
+        queries[QUERY_ADD_RECIPE_INFO] = "true"
+        queries[QUERY_FILL_INGREDIENTS] = "true"
+        return queries
+    }
+
 
     fun showNetworkStatus() {
         if (!networkStatus) {
