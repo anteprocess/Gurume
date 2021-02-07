@@ -8,15 +8,14 @@
     <fragment
         android:id="@+id/recipesFragment"
         android:name="com.anteprocess.food.ui.fragments.recipes.RecipesFragment"
-        android:label="Recipes"
-        tools:layout="@layout/fragment_recipes" >
+        android:label="Recipes">
         <action
             android:id="@+id/action_recipesFragment_to_recipesBottomSheet"
             app:destination="@id/recipesBottomSheet" />
         <argument
             android:name="backFromBottomSheet"
-            app:argType="boolean"
-            android:defaultValue="false" />
+            android:defaultValue="false"
+            app:argType="boolean" />
         <action
             android:id="@+id/action_recipesFragment_to_detailsActivity"
             app:destination="@id/detailsActivity" />
@@ -44,9 +43,11 @@
         android:id="@+id/detailsActivity"
         android:name="com.anteprocess.food.ui.DetailsActivity"
         android:label="Details"
-        tools:layout="@layout/activity_details" >
+        tools:layout="@layout/activity_details">
         <argument
             android:name="result"
-            app:argType="com.anteprocess.food.models.Result" />
+            app:argType="com.anteprocess.food.models.Result"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </activity>
 </navigation>
