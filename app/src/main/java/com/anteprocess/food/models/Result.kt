@@ -14,7 +14,9 @@ data class Result(
     @SerializedName("dairyFree")
     val dairyFree: Boolean? = false,
     @SerializedName("extendedIngredients")
-    val extendedIngredients: @RawValue List<ExtendedIngredient>? = null,
+    val extendedIngredients: @RawValue List<ExtendedIngredient>,
+    @SerializedName("ingredients")
+    val ingredients: String?,
     @SerializedName("glutenFree")
     val glutenFree: Boolean? = false,
     @SerializedName("id")
@@ -24,9 +26,9 @@ data class Result(
     @SerializedName("readyInMinutes")
     val readyInMinutes: Int? = 0,
     @SerializedName("sourceName")
-    val sourceName: String? = null,
+    val sourceName: String?,
     @SerializedName("sourceUrl")
-    val sourceUrl: String? = null,
+    val sourceUrl: String,
     @SerializedName("summary")
     val summary: String? = null,
     @SerializedName("title")

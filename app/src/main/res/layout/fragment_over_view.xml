@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.overview.OverViewFragment">
+    tools:context="com.anteprocess.food.ui.overview.OverViewFragment">
+
+
     <ImageView
         android:id="@+id/main_imageView"
         android:layout_width="0dp"
@@ -30,7 +32,7 @@
         android:id="@+id/time_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginBottom="12dp"
         android:text="100"
         android:textColor="@color/white"
@@ -53,7 +55,7 @@
         android:id="@+id/likes_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="32dp"
         android:text="100"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -145,7 +147,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="gluten_free"
+        android:text="@string/glueten_free"
         android:textColor="@color/darkGray"
         app:layout_constraintBottom_toBottomOf="@+id/gluten_free_imageView"
         app:layout_constraintStart_toEndOf="@+id/gluten_free_imageView"
@@ -166,7 +168,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="dairy_free"
+        android:text="Dairy Free"
         android:textColor="@color/darkGray"
         app:layout_constraintBottom_toBottomOf="@+id/dairy_free_imageView"
         app:layout_constraintStart_toEndOf="@+id/dairy_free_imageView"
@@ -188,7 +190,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="healthy"
+        android:text="Healthy"
         android:textColor="@color/darkGray"
         app:layout_constraintBottom_toBottomOf="@+id/healthy_imageView"
         app:layout_constraintStart_toEndOf="@+id/healthy_imageView"
@@ -209,13 +211,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="cheap"
+        android:text="Cheap"
         android:textColor="@color/darkGray"
         app:layout_constraintBottom_toBottomOf="@+id/cheap_imageView"
         app:layout_constraintStart_toEndOf="@+id/cheap_imageView"
         app:layout_constraintTop_toTopOf="@+id/cheap_imageView" />
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="12dp"
@@ -240,4 +243,5 @@
 
         </LinearLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

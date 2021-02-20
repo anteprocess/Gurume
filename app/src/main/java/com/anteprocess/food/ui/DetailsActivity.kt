@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.navArgs
 import com.anteprocess.food.R
 import com.anteprocess.food.adapters.PagerAdapter
+import com.anteprocess.food.data.util.Constants
+import com.anteprocess.food.data.util.Constants.Companion.RECIPE_RESULT
 import com.anteprocess.food.ui.fragments.instructions.InstructionsFragment
 import com.anteprocess.food.ui.ingredients.IngredientsFragment
 import com.anteprocess.food.ui.overview.OverViewFragment
@@ -37,7 +39,7 @@ class DetailsActivity : AppCompatActivity() {
 
 
         val resultBundle = Bundle()
-        resultBundle.putParcelable("recipeBundle", args.result)
+        resultBundle.putParcelable(RECIPE_RESULT, args.result)
 
         val adapter = PagerAdapter(
             resultBundle,

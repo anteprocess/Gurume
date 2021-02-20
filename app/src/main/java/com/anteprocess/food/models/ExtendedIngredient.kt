@@ -7,15 +7,15 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class ExtendedIngredient(
     @SerializedName("amount")
-    val amount: Double? = 0.0,
+    val amount: Double,
     @SerializedName("consistency")
-    val consistency: String? = null,
+    val consistency: String,
     @SerializedName("image")
-    val image: String? = null,
+    val image: String,
     @SerializedName("name")
-    val name: String? = null,
+    val name: String,
     @SerializedName("original")
-    val original: String? = null,
+    val original: String,
     @SerializedName("unit")
-    val unit: String? = null
+    val unit: String
 ): Parcelable

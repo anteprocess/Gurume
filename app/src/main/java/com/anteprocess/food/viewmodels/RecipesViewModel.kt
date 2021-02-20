@@ -72,7 +72,8 @@ class RecipesViewModel @ViewModelInject constructor(
         queries[QUERY_TYPE] = mealType //"snack"
         queries[QUERY_DIET] = dietType //"vegan"
         queries[QUERY_ADD_RECIPE_INFO] = "true"
-        //queries[QUERY_FILL_INGREDIENTS] = "true"
+        queries[QUERY_FILL_INGREDIENTS] = "true"
+        queries["instructionsRequired"] = "true"
         return queries
     }
 
@@ -83,6 +84,7 @@ class RecipesViewModel @ViewModelInject constructor(
         queries[QUERY_API_KEY] = API_KEY
         queries[QUERY_ADD_RECIPE_INFO] = "true"
         queries[QUERY_FILL_INGREDIENTS] = "true"
+        queries["instructionsRequired"] = "true"
         return queries
     }
 
