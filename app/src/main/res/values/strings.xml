@@ -20,4 +20,6 @@
     <string name="whole30">Whole30</string>
     <string name="apply">Apply</string>
     <string name="search">Search</string>
+    <string name="save_to_favorites">Save To Favorites</string>
+    <string name="no_favorite_recipes">No favorite Recipes</string>
 </resources>
