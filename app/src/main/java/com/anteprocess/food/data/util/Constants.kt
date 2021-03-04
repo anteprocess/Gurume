@@ -4,7 +4,9 @@ open class Constants {
     companion object {
         const val API_KEY = ""
         const val BASE_URL = "https://api.spoonacular.com"
+        const val BASE_IMAGE_URL = "https://spoonacular.com/cdn/ingredients_100x100/"
 
+        const val RECIPE_RESULT = "recipeBundle"
         // API Query Keys
         const val QUERY_SEARCH = "query"
         const val QUERY_NUMBER = "number"
@@ -17,7 +19,7 @@ open class Constants {
         //Room Database
         const val DATABASE_NAME = "recipes_database"
         const val RECIPES_TABLE = "recipes_table"
-
+        const val FAVORITE_RECIPES_TABLE = "favorite_recipes_table"
         //Bottom-sheet preferences
         const val DEFAULT_RECIPES_NUMBER = "50"
         const val DEFAULT_MEAL_TYPE= "main course"
