@@ -32,7 +32,7 @@
     <fragment
         android:id="@+id/foodJokeFragment"
         android:name="com.anteprocess.food.ui.fragments.foodjoke.FoodJokeFragment"
-        android:label="Food Joke"
+        android:label="キャラ弁"
         tools:layout="@layout/fragment_food_joke" />
     <dialog
         android:id="@+id/recipesBottomSheet"

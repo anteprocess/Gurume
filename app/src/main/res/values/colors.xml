@@ -30,5 +30,8 @@
     <color name="cardbackgroundColor">@color/white</color>
     <color name="titleColor">@color/darker</color>
 
-
+    <color name="statusBarColor">@color/colorPrimaryDark</color>
+    <color name="contextualStatusBarColor">@color/darker</color>
+    <color name="contextualActionbarColor">@color/dark</color>
+    <color name="cardbackgroundLightColor">#106200EA</color>
 </resources>

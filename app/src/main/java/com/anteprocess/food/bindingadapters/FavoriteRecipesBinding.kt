@@ -14,6 +14,7 @@ class FavoriteRecipesBinding {
     companion object {
 
         @BindingAdapter("viewVisibility", "setData", requireAll = false)
+        @JvmStatic
         fun setDataAndViewVisibility(
             view: View,
             favoritesEntity: List<FavoritesEntity>?, //viewVisibility

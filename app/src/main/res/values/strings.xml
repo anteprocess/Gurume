@@ -22,4 +22,5 @@
     <string name="search">Search</string>
     <string name="save_to_favorites">Save To Favorites</string>
     <string name="no_favorite_recipes">No favorite Recipes</string>
+    <string name="delete_favorite_menu">Delete Favorite</string>
 </resources>
