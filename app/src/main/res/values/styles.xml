@@ -8,6 +8,13 @@
         <item name="actionModeBackground">@color/contextualActionbarColor</item>
     </style>
 
+    <!-- Splash screen before our activity starts  -->
+    <style name="SplashScreenStyle" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/mainlogo</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
     <!-- styles for the chips -->
     <style name="CustomChipStyle" parent="Widget.MaterialComponents.Chip.Filter">
         <item name="chipBackgroundColor">@color/chip_background_color</item>
