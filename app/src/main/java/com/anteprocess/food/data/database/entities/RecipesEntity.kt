@@ -1,4 +1,4 @@
-package com.anteprocess.food.data.database
+package com.anteprocess.food.data.database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
