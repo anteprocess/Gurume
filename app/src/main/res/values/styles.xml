@@ -13,7 +13,7 @@
 
     <!-- Splash screen before our activity starts  -->
     <style name="SplashScreenStyle" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="android:windowBackground">@drawable/mainlogo</item>
+<!--        <item name="android:windowBackground">@drawable/mainlogo</item>-->
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
     </style>
@@ -54,5 +54,14 @@
         <item name="backgroundTint">@color/bottomnavbackground</item>
         <item name="itemIconTint">@color/bottom_nav_view_item_color</item>
         <item name="itemTextColor">@color/bottom_nav_view_item_color</item>
+    </style>
+
+    <style name="Widget.SplashScreenStyle.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
+
+    <style name="Widget.SplashScreenStyle.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
     </style>
 </resources>
