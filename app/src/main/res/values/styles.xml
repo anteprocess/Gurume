@@ -13,7 +13,7 @@
 
     <!-- Splash screen before our activity starts  -->
     <style name="SplashScreenStyle" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="android:windowBackground">@drawable/mainlogo</item>
+<!--        <item name="android:windowBackground">@drawable/mainlogo</item>-->
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
     </style>
