@@ -9,11 +9,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.anteprocess.food.R
 import com.anteprocess.food.adapters.IngredientsAdapter
 import com.anteprocess.food.data.util.Constants.Companion.RECIPE_RESULT
+import com.anteprocess.food.databinding.FragmentIngredientsBinding
 import com.anteprocess.food.models.Result
-import kotlinx.android.synthetic.main.fragment_ingredients.view.*
+
 
 
 class IngredientsFragment : Fragment() {
+
+    private var _bindings: FragmentIngredientsBinding? = null
+    private val binding get() = _bindings!!
 
     private val mAdapter: IngredientsAdapter by lazy { IngredientsAdapter() }
 
@@ -22,20 +26,25 @@ class IngredientsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_ingredients, container, false)
-
+        //val view = inflater.inflate(R.layout.fragment_ingredients, container, false)
+        _bindings = FragmentIngredientsBinding.inflate(inflater, container, false)
         val args = arguments
         val myBundle: Result? = args?.getParcelable(RECIPE_RESULT)
 
-        setupRecyclerView(view)
+        setupRecyclerView()
         myBundle?.extendedIngredients?.let { mAdapter.setData(it) }
 
-        return view
+        return binding.root
     }
 
-    private fun setupRecyclerView(view: View) {
-        view.ingredients_recyclerView.adapter = mAdapter
-        view.ingredients_recyclerView.layoutManager = LinearLayoutManager(requireContext())
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _bindings = null
+    }
+
+    private fun setupRecyclerView() {
+        binding.ingredientsRecyclerView.adapter = mAdapter
+        binding.ingredientsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
     }
 
 }
