@@ -12,7 +12,6 @@ import com.anteprocess.food.databinding.FragmentFavoriteRecipesBinding
 import com.anteprocess.food.viewmodels.MainViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_favorite_recipes.view.*
 
 
 @AndroidEntryPoint
@@ -74,8 +73,8 @@ class FavoriteRecipesFragment : Fragment() {
         ).setAction("Okay"){}.show()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
         mAdapter.clearContexualActionMoe()
     }

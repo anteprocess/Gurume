@@ -6,7 +6,6 @@ import android.view.*
 import androidx.appcompat.widget.SearchView // Use the androidx
 import androidx.fragment.app.Fragment
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -22,7 +21,6 @@ import com.anteprocess.food.data.util.observeOnce
 import com.anteprocess.food.databinding.FragmentRecipesBinding
 import com.anteprocess.food.viewmodels.RecipesViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_recipes.view.*
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 

@@ -5,12 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.anteprocess.food.R
-import com.anteprocess.food.data.util.Constants.Companion.API_KEY
-import com.anteprocess.food.data.util.NetworkResult
 import com.anteprocess.food.databinding.FragmentFoodJokeBinding
 import com.anteprocess.food.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint

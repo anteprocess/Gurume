@@ -8,18 +8,23 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.anteprocess.food.R
+import com.anteprocess.food.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_main.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
 
+    private var _binding: ActivityMainBinding? = null
+    private val bindings get() = _binding!!
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        _binding = ActivityMainBinding.inflate(layoutInflater)
+
         setTheme(R.style.AppTheme)
-        setContentView(R.layout.activity_main)
+        setContentView(bindings.root)
 
         //navigating to other frags
         navController = findNavController(R.id.navHostFragment)
@@ -30,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.foodJokeFragment
             ))
 
-        bottomNavigationView.setupWithNavController(navController)
+        bindings.bottomNavigationView.setupWithNavController(navController)
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
