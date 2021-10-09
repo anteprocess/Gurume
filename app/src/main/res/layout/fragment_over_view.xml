@@ -68,7 +68,7 @@
         android:id="@+id/likes_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_heart"
+        android:src="@drawable/ic_like"
         app:layout_constraintBottom_toTopOf="@+id/likes_textView"
         app:layout_constraintEnd_toEndOf="@+id/likes_textView"
         app:layout_constraintStart_toStartOf="@+id/likes_textView"

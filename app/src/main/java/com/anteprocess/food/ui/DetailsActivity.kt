@@ -66,7 +66,7 @@ class DetailsActivity : AppCompatActivity() {
             fragments,
             this
         )
-
+        bindings.viewPager2.isUserInputEnabled = false
         bindings.viewPager2.apply {
             adapter = pagerAdapter
         }

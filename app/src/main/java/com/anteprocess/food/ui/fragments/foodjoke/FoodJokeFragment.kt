@@ -52,7 +52,7 @@ class FoodJokeFragment : Fragment() {
 
         foodJoke = mainViewModel.getPresetFoodJoke()
         binding.foodjokeTextView.text = foodJoke
-      //  mainViewModel.getFoodJoke(API_KEY)
+        //  mainViewModel.getFoodJoke(API_KEY)
 
 //        mainViewModel.foodJokeResponse.observe(viewLifecycleOwner, { response ->
 //            when(response) {
@@ -77,7 +77,7 @@ class FoodJokeFragment : Fragment() {
 
     //Option related
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-       // super.onCreateOptionsMenu(menu, inflater)
+        // super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.food_joke_menu, menu)
     }
 
@@ -98,15 +98,15 @@ class FoodJokeFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun loadDataFromCache() {
-      lifecycleScope.launch {
-          mainViewModel.readFoodJoke.observe(viewLifecycleOwner, {database ->
-              if(database.isNotEmpty() && database != null) {
-                  binding.foodjokeTextView.text = database[0].foodJoke.text
-              }
-          })
-      }
-    }
+/*    private fun loadDataFromCache() {
+        lifecycleScope.launch {
+            mainViewModel.readFoodJoke.observe(viewLifecycleOwner, { database ->
+                if (database.isNotEmpty() && database != null) {
+                    binding.foodjokeTextView.text = database[0].foodJoke.text
+                }
+            })
+        }
+    }*/
 
     override fun onDestroyView() {
         super.onDestroyView()

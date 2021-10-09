@@ -70,7 +70,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView
+     <!--   <ImageView
             android:id="@+id/food_joke_error_imageView"
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -83,8 +83,8 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
+-->
+<!--        <TextView
             android:id="@+id/food_joke_error_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
             android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="@+id/food_joke_error_imageView"
             app:layout_constraintStart_toStartOf="@+id/food_joke_error_imageView"
-            app:layout_constraintTop_toBottomOf="@+id/food_joke_error_imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/food_joke_error_imageView" />-->
 
         <ImageView
             android:id="@+id/imageView"
