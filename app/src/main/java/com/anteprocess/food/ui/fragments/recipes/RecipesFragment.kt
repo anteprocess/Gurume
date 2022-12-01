@@ -206,16 +206,21 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
 
 
     private fun showShimmerEffect() {
-        binding.recyclerview.showShimmer()
+        binding.shimmerFrameLayout.startShimmer()
+        binding.shimmerFrameLayout.visibility = View.VISIBLE
+        binding.recyclerview.visibility = View.GONE
     }
 
     private fun hideShimmerEffect() {
-        binding.recyclerview.hideShimmer()
+        binding.shimmerFrameLayout.stopShimmer()
+        binding.shimmerFrameLayout.visibility = View.GONE
+        binding.recyclerview.visibility = View.VISIBLE
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        // To prevent the memory leaks
+    override fun onDestroyView() {
+        super.onDestroyView()
+        mainViewModel.recyclerViewState =
+            binding.recyclerview.layoutManager?.onSaveInstanceState()
         __binding = null
     }
 

@@ -35,7 +35,7 @@ open class Constants {
 
         const val PREFERENCES_NAME = "foody_preferences"
 
-        const val PREFERENCES_BACKONLINE = "backonline"
+        const val PREFERENCES_BACK_ONLINE = "backonline"
 
     }
 }
