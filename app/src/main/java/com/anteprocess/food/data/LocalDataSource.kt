@@ -4,7 +4,6 @@ import com.anteprocess.food.data.database.RecipesDao
 import com.anteprocess.food.data.database.entities.FavoritesEntity
 import com.anteprocess.food.data.database.entities.FoodJokeEntity
 import com.anteprocess.food.data.database.entities.RecipesEntity
-import com.anteprocess.food.models.FoodJoke
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
