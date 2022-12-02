@@ -6,6 +6,7 @@
     <string name="favorite_recipes">Favorites</string>
     <string name="recipes_joke">Quote</string>
     <string name="meal_type">Meal Type</string>
+    <string name="todo">TODO</string>
     <string name="main_course">main course</string>
     <string name="salad">salad</string>
     <string name="appetizer">appetizer</string>
@@ -29,4 +30,22 @@
     <string name="title_activity_splash">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="description">Description</string>
+    <string name="title">Title</string>
+    <string name="sort_by">Sort By</string>
+    <string name="priority_high">Priority: High</string>
+    <string name="priority_low">Priority: Low</string>
+    <string name="delete_all">Delete All</string>
+    <string name="add">Add</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+
+    <string-array name="priorities">
+        <item>High Priority</item>
+        <item>Medium Priority</item>
+        <item>Low Priority</item>
+    </string-array>
+
 </resources>
