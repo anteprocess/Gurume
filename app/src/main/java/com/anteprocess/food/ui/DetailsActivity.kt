@@ -13,18 +13,22 @@ import com.anteprocess.food.R
 import com.anteprocess.food.adapters.PagerAdapter
 import com.anteprocess.food.data.database.entities.FavoritesEntity
 import com.anteprocess.food.data.util.Constants.Companion.RECIPE_RESULT
+import com.anteprocess.food.databinding.ActivityDetailsBinding
 import com.anteprocess.food.ui.fragments.instructions.InstructionsFragment
 import com.anteprocess.food.ui.ingredients.IngredientsFragment
 import com.anteprocess.food.ui.overview.OverViewFragment
 import com.anteprocess.food.viewmodels.MainViewModel
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_details.*
 import java.lang.Exception
 
 
 @AndroidEntryPoint
 class DetailsActivity : AppCompatActivity() {
+
+    private var _bindings: ActivityDetailsBinding? = null
+    private val bindings get() = _bindings!!
 
     private val args by navArgs<DetailsActivityArgs>()
     private val mainViewModel: MainViewModel by viewModels()
@@ -35,10 +39,12 @@ class DetailsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_details)
+        _bindings = ActivityDetailsBinding.inflate(layoutInflater)
 
-        setSupportActionBar(toolbar)
-        toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.white))
+        setContentView(bindings.root)
+
+        setSupportActionBar(bindings.toolbar)
+        bindings.toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.white))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val fragments = ArrayList<Fragment>()
@@ -55,15 +61,18 @@ class DetailsActivity : AppCompatActivity() {
         val resultBundle = Bundle()
         resultBundle.putParcelable(RECIPE_RESULT, args.result)
 
-        val adapter = PagerAdapter(
+        val pagerAdapter = PagerAdapter(
             resultBundle,
             fragments,
-            titles,
-            supportFragmentManager
+            this
         )
-
-        viewPager.adapter = adapter
-        tabLayout.setupWithViewPager(viewPager)
+        bindings.viewPager2.isUserInputEnabled = false
+        bindings.viewPager2.apply {
+            adapter = pagerAdapter
+        }
+        TabLayoutMediator(bindings.tabLayout, bindings.viewPager2) { tab, position ->
+            tab.text = titles[position]
+        }.attach()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -105,7 +114,7 @@ class DetailsActivity : AppCompatActivity() {
 
     private fun saveToFavorites(item: MenuItem) {
         val favoritesEntity =  FavoritesEntity(0, args.result!!)
-        mainViewModel.insertFavoriteRecipes(favoritesEntity)
+        mainViewModel.insertFavoriteRecipe(favoritesEntity)
         changeMenuItemColor(item, R.color.yellow)
         showSnackBar("Recipe saved")
         recipeSaved = true
@@ -123,13 +132,13 @@ class DetailsActivity : AppCompatActivity() {
     }
 
     private fun showSnackBar(message: String) {
-        Snackbar.make(detailsLayout,
+        Snackbar.make(bindings.detailsLayout,
             message,
             Snackbar.LENGTH_SHORT
         ).setAction("Okay") {}.show()
     }
 
     private fun changeMenuItemColor(item: MenuItem, color: Int) {
-        item.icon.setTint(ContextCompat.getColor(this, color))
+        item.icon?.setTint(ContextCompat.getColor(this, color))
     }
 }

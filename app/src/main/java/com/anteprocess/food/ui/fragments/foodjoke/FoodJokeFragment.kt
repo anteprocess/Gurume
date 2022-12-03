@@ -5,12 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.anteprocess.food.R
-import com.anteprocess.food.data.util.Constants.Companion.API_KEY
-import com.anteprocess.food.data.util.NetworkResult
 import com.anteprocess.food.databinding.FragmentFoodJokeBinding
 import com.anteprocess.food.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -55,7 +52,7 @@ class FoodJokeFragment : Fragment() {
 
         foodJoke = mainViewModel.getPresetFoodJoke()
         binding.foodjokeTextView.text = foodJoke
-      //  mainViewModel.getFoodJoke(API_KEY)
+        //  mainViewModel.getFoodJoke(API_KEY)
 
 //        mainViewModel.foodJokeResponse.observe(viewLifecycleOwner, { response ->
 //            when(response) {
@@ -80,7 +77,7 @@ class FoodJokeFragment : Fragment() {
 
     //Option related
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-       // super.onCreateOptionsMenu(menu, inflater)
+        // super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.food_joke_menu, menu)
     }
 
@@ -101,15 +98,15 @@ class FoodJokeFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun loadDataFromCache() {
-      lifecycleScope.launch {
-          mainViewModel.readFoodJoke.observe(viewLifecycleOwner, {database ->
-              if(database.isNotEmpty() && database != null) {
-                  binding.foodjokeTextView.text = database[0].foodJoke.text
-              }
-          })
-      }
-    }
+/*    private fun loadDataFromCache() {
+        lifecycleScope.launch {
+            mainViewModel.readFoodJoke.observe(viewLifecycleOwner, { database ->
+                if (database.isNotEmpty() && database != null) {
+                    binding.foodjokeTextView.text = database[0].foodJoke.text
+                }
+            })
+        }
+    }*/
 
     override fun onDestroyView() {
         super.onDestroyView()

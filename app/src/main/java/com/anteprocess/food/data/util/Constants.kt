@@ -2,7 +2,7 @@ package com.anteprocess.food.data.util
 
 open class Constants {
     companion object {
-        const val API_KEY = ""
+        const val API_KEY = "4b97c2996f9f403a96fd7cc30948417c"
         const val BASE_URL = "https://api.spoonacular.com"
         const val BASE_IMAGE_URL = "https://spoonacular.com/cdn/ingredients_100x100/"
 
@@ -35,7 +35,7 @@ open class Constants {
 
         const val PREFERENCES_NAME = "foody_preferences"
 
-        const val PREFERENCES_BACKONLINE = "backonline"
+        const val PREFERENCES_BACK_ONLINE = "backonline"
 
     }
 }
