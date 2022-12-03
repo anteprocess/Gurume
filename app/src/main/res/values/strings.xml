@@ -1,11 +1,12 @@
 <resources>
-    <string name="app_name">Food</string>
+    <string name="app_name">Gurume</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="recipes_fragment">Gurume</string>
     <string name="favorite_recipes">Favorites</string>
     <string name="recipes_joke">Quote</string>
     <string name="meal_type">Meal Type</string>
+    <string name="todo">TODO</string>
     <string name="main_course">main course</string>
     <string name="salad">salad</string>
     <string name="appetizer">appetizer</string>
@@ -26,7 +27,25 @@
 
     <string name="lorem_ipsum">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</string>
     <string name="share">Share</string>
-    <string name="title_activity_splash">FullscreenActivity</string>
+    <string name="title_activity_splash">Gurume</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="description">Description</string>
+    <string name="title">Title</string>
+    <string name="sort_by">Sort By</string>
+    <string name="priority_high">Priority: High</string>
+    <string name="priority_low">Priority: Low</string>
+    <string name="delete_all">Delete All</string>
+    <string name="add">Add</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+
+    <string-array name="priorities">
+        <item>High Priority</item>
+        <item>Medium Priority</item>
+        <item>Low Priority</item>
+    </string-array>
+
 </resources>

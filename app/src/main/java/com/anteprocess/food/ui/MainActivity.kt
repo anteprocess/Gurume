@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.recipesFragment,
                 R.id.favoriteRecipesFragment,
-                R.id.foodJokeFragment
+                R.id.todoActivity
             ))
 
         bindings.bottomNavigationView.setupWithNavController(navController)
