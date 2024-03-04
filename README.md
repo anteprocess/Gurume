@@ -1,5 +1,5 @@
 # Gurume
-Food recipes searching application made with kotlin. I`m currently making this application as a prototype that can be used for other projects. This application is 85% developed
+Gurume is a food recipes searching application developed using Kotlin. Currently, it's being crafted as a prototype that can serve as a foundation for future projects. The application is 85% complete.
 
 ![Screenshot](https://github.com/anteprocess/Gurume/blob/master/screenshots/main.png)
 
