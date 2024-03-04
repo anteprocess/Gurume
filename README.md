@@ -1,6 +1,9 @@
 # Gurume
 Food recipes searching application made with kotlin. I`m currently making this application as a prototype that can be used for other projects. This application is 85% developed
 
+![Screenshot](https://github.com/anteprocess/Gurume/blob/master/screenshots/main.png)
+
+
 # How to run this project: 
 1. Clone development branch
 2. Since I won`t be pushing the api key, you will have to create the API key from spoonacular developer website. And add that api key into variable(API_KEY) in the Constants.kt 
